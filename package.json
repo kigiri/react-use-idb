@@ -11,13 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kigiri/use-idb.git"
+    "url": "git+https://github.com/kigiri/react-use-idb.git"
   },
   "keywords": ["indexDB", "react-hook"],
   "author": "kigiri",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kigiri/use-idb/issues"
+    "url": "https://github.com/kigiri/react-use-idb/issues"
   },
-  "homepage": "https://github.com/kigiri/use-idb#readme"
+  "homepage": "https://github.com/kigiri/react-use-idb#readme"
 }
