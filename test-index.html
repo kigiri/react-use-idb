@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>tests</title>
+</head>
+<body>
+<script type="module">
+import { set, get } from './idb.js'
+
+console.log('twistedd!!!')
+set('wesh', { a: 12, b: { c: 32 } }).then(async () => {
+  const value = await get('wesh')
+  console.log(value)
+})
+.catch(console.error)
+
+</script>
+</body>
+</html>
