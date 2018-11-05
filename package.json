@@ -1,0 +1,23 @@
+{
+  "name": "react-use-idb",
+  "version": "1.0.0",
+  "description": "Use indexDB react hook",
+  "main": "index.js",
+  "scripts": {
+    "test": "node -r esm test.js"
+  },
+  "peerDependencies": {
+    "react": ">= 16.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kigiri/use-idb.git"
+  },
+  "keywords": ["indexDB", "react-hook"],
+  "author": "kigiri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kigiri/use-idb/issues"
+  },
+  "homepage": "https://github.com/kigiri/use-idb#readme"
+}
