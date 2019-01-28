@@ -6,12 +6,11 @@ A drop-in remplacement over `useLocalStorage`.
 
 ## Why ?
 
-`LocalStorage` is synchronous and has such, as [performances issues](https://hacks.mozilla.org/2012/03/there-is-no-simple-solution-for-local-storage/)
+`LocalStorage` is synchronous and as such, has [performances issues](https://hacks.mozilla.org/2012/03/there-is-no-simple-solution-for-local-storage/)
 
-`LocalStorage` is also limited in only storing string and provide no
-default mechanisme of serializing / deserializing your data.
+`LocalStorage` is also limited, only storing strings and does not provide a default mechanisme for serializing / deserializing your data.
 
-Instead, we can rely on `indexDB` structural cloning.
+Instead, we can rely on `indexDB` for structural cloning.
 
 ## Usage
 
