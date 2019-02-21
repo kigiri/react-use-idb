@@ -3,7 +3,10 @@ import { set, get } from './idb.js'
 
 export const useIdb = (key, initialState) => {
   const [item, setItem] = useState(initialState)
-  useEffect(async () => setItem(await get(key)), [key])
+  useEffect(() => {
+    get(key).then(value => value === undefined || setItem(value))
+  }, [key])
+
   return [
     item,
     value => {
