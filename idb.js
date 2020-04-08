@@ -1,3 +1,5 @@
+const isBrowser = typeof window !== 'undefined';
+
 const dbp = new Promise((resolve, reject) => {
   const openreq = window.indexedDB.open('use-idb', 1)
   openreq.onerror = () => reject(openreq.error)
