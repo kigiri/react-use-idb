@@ -1,14 +1,13 @@
 const isBrowser = typeof window !== 'undefined'
 
 const dbp = new Promise((resolve, reject) => {
-  if (isBrowser){
-    const openreq = window.indexedDB.open('use-idb', 1)
-    openreq.onerror = () => reject(openreq.error)
-    openreq.onsuccess = () => resolve(openreq.result)
-    openreq.onupgradeneeded = () => openreq.result.createObjectStore('idb')
-  } else {
-    resolve(undefined)
+  if (!isBrowser) {
+    return resolve(undefined)
   }
+  const openreq = window.indexedDB.open('use-idb', 1)
+  openreq.onerror = () => reject(openreq.error)
+  openreq.onsuccess = () => resolve(openreq.result)
+  openreq.onupgradeneeded = () => openreq.result.createObjectStore('idb')
 })
 
 export const call = async (type, method, ...args) => {
