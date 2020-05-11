@@ -1,4 +1,4 @@
-const hasIDB = typeof indexedDB !== 'undefined'
+const hasIDB = typeof window !== 'undefined'
 
 const dbp = new Promise((resolve, reject) => {
   if (!hasIDB) {
