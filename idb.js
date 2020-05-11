@@ -1,4 +1,9 @@
+const hasIDB = typeof window !== 'undefined'
+
 const dbp = new Promise((resolve, reject) => {
+  if (!hasIDB) {
+    return resolve(undefined)
+  }
   const openreq = window.indexedDB.open('use-idb', 1)
   openreq.onerror = () => reject(openreq.error)
   openreq.onsuccess = () => resolve(openreq.result)
@@ -7,13 +12,16 @@ const dbp = new Promise((resolve, reject) => {
 
 export const call = async (type, method, ...args) => {
   const db = await dbp
-  const transaction = db.transaction('idb', type)
-  const store = transaction.objectStore('idb')
-
   return new Promise((resolve, reject) => {
-    const req = store[method](...args)
-    transaction.oncomplete = () => resolve(req)
-    transaction.onabort = transaction.onerror = () => reject(transaction.error)
+    if (hasIDB){
+      const transaction = db.transaction('idb', type)
+      const store = transaction.objectStore('idb')
+      const req = store[method](...args)
+      transaction.oncomplete = () => resolve(req)
+      transaction.onabort = transaction.onerror = () => reject(transaction.error)
+    } else {
+      resolve(undefined)
+    }
   })
 }
 
