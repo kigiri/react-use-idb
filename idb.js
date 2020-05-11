@@ -1,7 +1,7 @@
-const isBrowser = typeof window !== 'undefined'
+const hasIDB = typeof indexedDB !== 'undefined'
 
 const dbp = new Promise((resolve, reject) => {
-  if (!isBrowser) {
+  if (!hasIDB) {
     return resolve(undefined)
   }
   const openreq = window.indexedDB.open('use-idb', 1)
@@ -13,7 +13,7 @@ const dbp = new Promise((resolve, reject) => {
 export const call = async (type, method, ...args) => {
   const db = await dbp
   return new Promise((resolve, reject) => {
-    if (isBrowser){
+    if (hasIDB){
       const transaction = db.transaction('idb', type)
       const store = transaction.objectStore('idb')
       const req = store[method](...args)
